@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "konga.fullname" . }}-seed-config
+  labels:
+    heritage: {{ .Release.Name }}
+    release: {{ .Release.Name }}
+    chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+    app: {{ template "konga.name" . }}
+data:
+  {{- if .Values.seed }}
+  {{- range $key, $value := .Values.seed }}
+  {{ $key }}: |
+{{ $value | indent 4 }}
+  {{- end -}}
+{{- end -}}
