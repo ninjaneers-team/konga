@@ -27,7 +27,7 @@ jobs:
       language: minimal
       if: branch = master
       env:
-        - NAME=deck
+        - NAME=konga
         - TEAM=ninjaneers-team
         - REPOSITORY=charts
         - VERSION=1.0.0
